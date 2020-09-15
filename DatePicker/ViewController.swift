@@ -20,7 +20,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         lablePreview.numberOfLines = 3
 
-        selectedDate = datePicker.date.description(with: Locale(identifier: "ar"))
+        // DatePickerMode
+//        datePicker.datePickerMode = .date
+//        datePicker.datePickerMode = .time
+        datePicker.datePickerMode = .dateAndTime
+        
+        selectedDate = dateFormatTime(datePicker.date)
         lablePreview.text = selectedDate
         
     }
@@ -31,7 +36,7 @@ class ViewController: UIViewController {
     
     @IBAction func onDateChangeListener(_ sender: Any) {
         
-        selectedDate = datePicker.date.description(with: Locale(identifier: "ar"))        
+        selectedDate = dateFormatTime(datePicker.date)
         lablePreview.text = selectedDate
         
     }
@@ -45,6 +50,11 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func dateFormatTime(_ date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM, yyyy hh:mm:ss"
+        return dateFormatter.string(from: date)
+    }
 }
     
 
