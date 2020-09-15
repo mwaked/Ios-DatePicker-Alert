@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,62 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DatePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5cT-iv-6hi">
+                                <rect key="frame" x="0.0" y="235.5" width="414" height="216"/>
+                                <connections>
+                                    <action selector="onDateChangeListener:" destination="BYZ-38-t0r" eventType="valueChanged" id="UVR-sT-vtX"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Data and Time will preview here..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXE-NN-eDI">
+                                <rect key="frame" x="28" y="106" width="358" height="122"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W22-cD-W4j" userLabel="Preview Date">
+                                <rect key="frame" x="28" y="496" width="358" height="56"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Preview Date">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.04653448611497879" green="0.36129224300384521" blue="0.96729964017868042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPreviewDataclick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gbD-fY-PPN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="W22-cD-W4j" firstAttribute="top" secondItem="5cT-iv-6hi" secondAttribute="bottom" constant="44" id="1yJ-0R-Alj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oXE-NN-eDI" secondAttribute="trailing" constant="28" id="Br7-VT-tYO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W22-cD-W4j" secondAttribute="trailing" constant="28" id="Tgc-UJ-0cB"/>
+                            <constraint firstItem="oXE-NN-eDI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="Z1G-Zo-iUv"/>
+                            <constraint firstItem="W22-cD-W4j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="bBl-5O-CYR"/>
+                            <constraint firstItem="oXE-NN-eDI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="buG-7P-0bK"/>
+                            <constraint firstItem="W22-cD-W4j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="cEL-2z-YYu"/>
+                            <constraint firstItem="W22-cD-W4j" firstAttribute="top" secondItem="5cT-iv-6hi" secondAttribute="bottom" constant="44" id="ca3-LR-6uo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W22-cD-W4j" secondAttribute="trailing" constant="28" id="eeB-Gn-rLk"/>
+                            <constraint firstItem="5cT-iv-6hi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fSu-Lo-BXR"/>
+                            <constraint firstItem="5cT-iv-6hi" firstAttribute="top" secondItem="oXE-NN-eDI" secondAttribute="bottom" constant="71" id="fqG-Oa-K0c"/>
+                            <constraint firstItem="oXE-NN-eDI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="hul-v2-kbj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oXE-NN-eDI" secondAttribute="trailing" constant="28" id="lhT-u1-DDw"/>
+                            <constraint firstItem="5cT-iv-6hi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qqF-DH-BlT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="5cT-iv-6hi" id="Y9k-YP-D60"/>
+                        <outlet property="lablePreview" destination="oXE-NN-eDI" id="NIc-Uy-7K7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="118.52678571428571"/>
         </scene>
     </scenes>
 </document>
